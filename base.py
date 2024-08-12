@@ -7,12 +7,13 @@ app=Flask(__name__)
 
 
 
-@app.route("/", method=['post','get'])
+@app.route("/", methods=['POST','GET'])
 def index():
-    if request.method== 'get':
-        return render_template(index)
-    elif request.method=='post':
-        pass
+    if request.method== 'GET':
+        return render_template('index.html')
+    elif request.method=='POST':
+        name=request.form.get('first_name')
+
 
 
 
