@@ -54,6 +54,16 @@ def index():
 
 
 
+
+
+
+@app.route('/show')
+def show():
+    resumes=user.query.all()
+    
+    return render_template('show.html', resumes=resumes)
+
+
 if __name__=='__main__':
     app.run(debug=True)
 

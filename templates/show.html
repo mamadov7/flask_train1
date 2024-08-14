@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>افراد</title>
+
+</head>
+<body>
+
+
+{%for resume in resumes%}
+
+<h1>{{resume.fname}}</h1>
+<h2>{{resume.lname}}</h2>
+<h3>{{resume.city}}</h3>
+<h4>{{resume.resume}}</h4><hr>
+
+
+
+{%endfor%}
+
+
+
+</body>
+</html>
