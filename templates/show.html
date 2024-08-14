@@ -10,11 +10,11 @@
 
 
 {%for resume in resumes%}
-
+<a href="{{url_for('show_user', user_id=resume.id)}}">
 <h1>{{resume.fname}}</h1>
 <h2>{{resume.lname}}</h2>
 <h3>{{resume.city}}</h3>
-<h4>{{resume.resume}}</h4><hr>
+<h4>{{resume.resume}}</h4><hr></a>
 
 
 
