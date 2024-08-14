@@ -13,7 +13,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///yourdatabase.db?check_same_th
 db=SQLAlchemy(app)
 
 
-class user(db.Model):
+class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     fname = db.Column(db.String(20))
@@ -43,7 +43,7 @@ def index():
         resume=request.form.get('resume')
 
 
-        new_user=user(fname=fname , lname=lname , city=city , resume=resume)
+        new_user=User(fname=fname , lname=lname , city=city , resume=resume)
 
         db.session.add(new_user)
         db.session.commit()
@@ -59,9 +59,19 @@ def index():
 
 @app.route('/show')
 def show():
-    resumes=user.query.all()
-    
+    resumes=User.query.all()
+
     return render_template('show.html', resumes=resumes)
+
+
+
+
+
+
+@app.route('/show/<int:user_id>')
+def show_user(user_id):
+    user=User.query.get(user_id)
+    return render_template('show_user.html', user=user)
 
 
 if __name__=='__main__':
